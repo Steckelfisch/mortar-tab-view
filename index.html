@@ -10,6 +10,8 @@
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/install-button.css">
+    <link rel="stylesheet" href="css/layouts.css">
   </head>
   <body>
     <!-- Use this installation button to install locally without going
@@ -19,31 +21,75 @@
     <div class="loading">Loading...</div>
 
     <x-view id="app">
-      <x-listview class="list">
-        <header>
-          <button class="refresh">Refresh</button>
-          <h1>My Items</h1>
-          <button class="add">+</button>
-        </header>
-      </x-listview>
+      <x-view class="home">
+        <x-view class="homesub">
+          <header>
+            <h1>Home</h1>
+          </header>
 
-      <x-view class="detail">
-        <header>
-          <h1>he</h1>
-          <button data-view="x-view.edit">Edit</button>
-        </header>
-        
-        <h1 class="title"></h1>
-        <p class="desc"></p>
-        <p class="date"></p>
+          <p>Welcome to your next app!</p>
+
+          <p>
+            The "List" button below opens up a list view and pushes it
+            on the navigation stack, so you can press back to get back
+            here. The buttons at the bottom switch between different
+            views like tabs.
+          </p>
+
+          <p>
+            When a view is pushed onto the navigation stack, it slides
+            open and a "back" button is automatically added to the
+            header (if it has one).
+          </p>
+
+          <p>
+            <strong>
+              View more documentation in
+              the <a href="http://github.com/mozilla/mortar-tab-view/">README</a>.
+            </strong>
+          </p>
+
+          <footer>
+            <button data-view=".list">List</button>
+          </footer>
+        </x-view>
+
+        <x-listview class="list">
+          <header>
+            <h1>Items</h1>
+          </header>
+        </x-listview>
+
+        <x-view class="details">
+          <header><h1>Details</h1></header>
+          
+          This item has the title "<span class="title"></span>"
+        </x-view>
       </x-view>
 
-      <x-view class="edit">
-        <header><h1>Edit</h1></header>
-        <div class="field">Title: <input type="text" name="title" /></div>
-        <div class="field">Description: <input type="text" name="desc" /></div>
-        <button type="submit" class="add">Add</button>
+      <x-view class="foo">
+        <h1>Section #1</h1>
+        <p>
+          This is another section. If you go back to the "Home"
+          section, notice that it puts you back exactly where you were
+          before you switched tabs (if you opened and subviews or
+          scrolled).
+        </p>
       </x-view>
+
+      <x-view class="bar">
+        <h1>Section #2</h1>
+        <button>Press me!</button>
+        <p>
+          This is yet another section. The button above does nothing.
+        </p>
+      </x-view>
+
+      <footer>
+        <button data-view=".home">Home</button>
+        <button data-view=".foo">Section #1</button>
+        <button data-view=".bar">Section #2</button>
+      </footer>
     </x-view>
 
     <!-- Using require.js, a module system for javascript, include the
